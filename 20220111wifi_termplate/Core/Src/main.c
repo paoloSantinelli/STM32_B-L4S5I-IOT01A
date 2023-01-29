@@ -74,25 +74,35 @@ const osThreadAttr_t Task2_attributes = {
   .stack_size = 256 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
-/* Definitions for i2c_Mutex */
-osMutexId_t i2c_MutexHandle;
-const osMutexAttr_t i2c_Mutex_attributes = {
-  .name = "i2c_Mutex"
+/* Definitions for i2c1_Mutex */
+osMutexId_t i2c1_MutexHandle;
+const osMutexAttr_t i2c1_Mutex_attributes = {
+  .name = "i2c1_Mutex"
 };
 /* Definitions for mqtt_mutex */
 osMutexId_t mqtt_mutexHandle;
 const osMutexAttr_t mqtt_mutex_attributes = {
   .name = "mqtt_mutex"
 };
-/* Definitions for i2cBinarySem */
-osSemaphoreId_t i2cBinarySemHandle;
-const osSemaphoreAttr_t i2cBinarySem_attributes = {
-  .name = "i2cBinarySem"
+/* Definitions for i2c2_Mutex */
+osMutexId_t i2c2_MutexHandle;
+const osMutexAttr_t i2c2_Mutex_attributes = {
+  .name = "i2c2_Mutex"
+};
+/* Definitions for i2c1BinarySem */
+osSemaphoreId_t i2c1BinarySemHandle;
+const osSemaphoreAttr_t i2c1BinarySem_attributes = {
+  .name = "i2c1BinarySem"
 };
 /* Definitions for BinSem */
 osSemaphoreId_t BinSemHandle;
 const osSemaphoreAttr_t BinSem_attributes = {
   .name = "BinSem"
+};
+/* Definitions for i2c2BinarySem */
+osSemaphoreId_t i2c2BinarySemHandle;
+const osSemaphoreAttr_t i2c2BinarySem_attributes = {
+  .name = "i2c2BinarySem"
 };
 /* USER CODE BEGIN PV */
 
@@ -179,22 +189,28 @@ int main(void)
   /* Init scheduler */
   osKernelInitialize();
   /* Create the mutex(es) */
-  /* creation of i2c_Mutex */
-  i2c_MutexHandle = osMutexNew(&i2c_Mutex_attributes);
+  /* creation of i2c1_Mutex */
+  i2c1_MutexHandle = osMutexNew(&i2c1_Mutex_attributes);
 
   /* creation of mqtt_mutex */
   mqtt_mutexHandle = osMutexNew(&mqtt_mutex_attributes);
+
+  /* creation of i2c2_Mutex */
+  i2c2_MutexHandle = osMutexNew(&i2c2_Mutex_attributes);
 
   /* USER CODE BEGIN RTOS_MUTEX */
   /* add mutexes, ... */
   /* USER CODE END RTOS_MUTEX */
 
   /* Create the semaphores(s) */
-  /* creation of i2cBinarySem */
-  i2cBinarySemHandle = osSemaphoreNew(1, 1, &i2cBinarySem_attributes);
+  /* creation of i2c1BinarySem */
+  i2c1BinarySemHandle = osSemaphoreNew(1, 1, &i2c1BinarySem_attributes);
 
   /* creation of BinSem */
   BinSemHandle = osSemaphoreNew(1, 1, &BinSem_attributes);
+
+  /* creation of i2c2BinarySem */
+  i2c2BinarySemHandle = osSemaphoreNew(1, 1, &i2c2BinarySem_attributes);
 
   /* USER CODE BEGIN RTOS_SEMAPHORES */
   /* add semaphores, ... */
