@@ -31,7 +31,7 @@
 /* Private typedef -----------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-SPI_HandleTypeDef hspi3;
+extern SPI_HandleTypeDef hspi3;
 static  int volatile spi_rx_event = 0;
 static  int volatile spi_tx_event = 0;
 static  int volatile cmddata_rdy_rising_event = 0;
