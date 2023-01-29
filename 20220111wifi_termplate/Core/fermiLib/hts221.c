@@ -3,7 +3,7 @@
  *
  *  Created on: Nov 24, 2021
  *      Author: Paolo Santinelli, Alessio Cuoghi
- *	Rev 1, Jan 07, 2023: Fixed name hst with hts
+ *		Rev 1, Jan 07, 2023: Fixed name hst with hts
  */
 #include "hts221.h"
 
