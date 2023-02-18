@@ -1037,6 +1037,7 @@ void Task1Proc(void *argument)
 {
   /* USER CODE BEGIN 5 */
 
+
 	/* Infinite loop */
   for(;;)
   {
