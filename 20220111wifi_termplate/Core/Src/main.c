@@ -74,20 +74,20 @@ const osThreadAttr_t Task2_attributes = {
   .stack_size = 256 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
-/* Definitions for i2c1_Mutex */
-osMutexId_t i2c1_MutexHandle;
-const osMutexAttr_t i2c1_Mutex_attributes = {
-  .name = "i2c1_Mutex"
+/* Definitions for i2c1Mutex */
+osMutexId_t i2c1MutexHandle;
+const osMutexAttr_t i2c1Mutex_attributes = {
+  .name = "i2c1Mutex"
 };
 /* Definitions for mqtt_mutex */
 osMutexId_t mqtt_mutexHandle;
 const osMutexAttr_t mqtt_mutex_attributes = {
   .name = "mqtt_mutex"
 };
-/* Definitions for i2c2_Mutex */
-osMutexId_t i2c2_MutexHandle;
-const osMutexAttr_t i2c2_Mutex_attributes = {
-  .name = "i2c2_Mutex"
+/* Definitions for i2c2Mutex */
+osMutexId_t i2c2MutexHandle;
+const osMutexAttr_t i2c2Mutex_attributes = {
+  .name = "i2c2Mutex"
 };
 /* Definitions for i2c1BinarySem */
 osSemaphoreId_t i2c1BinarySemHandle;
@@ -189,14 +189,14 @@ int main(void)
   /* Init scheduler */
   osKernelInitialize();
   /* Create the mutex(es) */
-  /* creation of i2c1_Mutex */
-  i2c1_MutexHandle = osMutexNew(&i2c1_Mutex_attributes);
+  /* creation of i2c1Mutex */
+  i2c1MutexHandle = osMutexNew(&i2c1Mutex_attributes);
 
   /* creation of mqtt_mutex */
   mqtt_mutexHandle = osMutexNew(&mqtt_mutex_attributes);
 
-  /* creation of i2c2_Mutex */
-  i2c2_MutexHandle = osMutexNew(&i2c2_Mutex_attributes);
+  /* creation of i2c2Mutex */
+  i2c2MutexHandle = osMutexNew(&i2c2Mutex_attributes);
 
   /* USER CODE BEGIN RTOS_MUTEX */
   /* add mutexes, ... */
